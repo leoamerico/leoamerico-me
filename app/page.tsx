@@ -77,7 +77,7 @@ export default function Curriculum() {
             },
             address: { '@type': 'PostalAddress', addressLocality: 'Uberlândia', addressRegion: 'MG', addressCountry: 'BR' },
             email: 'mailto:contato@envneo.com.br',
-            sameAs: ['https://envneo.com.br', 'https://govevia.com.br'],
+            sameAs: ['https://envneo.com.br', 'https://govevia.com.br', 'https://substack.com/profile/21150910-leonardo-americo-jose-ribeiro'],
           }),
         }}
       />
