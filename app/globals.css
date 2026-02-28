@@ -1,0 +1,173 @@
+/* ══════════════════════════════════════════════
+   leoamerico.me — Design System
+   Tokens herdados do sistema Env Neo
+   ══════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Tipografia */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Paleta */
+  --ink:           #0A0A0F;
+  --ink-soft:      #111118;
+  --parchment:     #F5F0E8;
+  --parchment-dim: #C8C3BB;
+  --gold:          #C8A84E;
+  --gold-muted:    rgba(200,168,78,0.2);
+  --gold-light:    #D4B86A;
+  --slate:         #6B7280;
+  --slate-light:   #9CA3AF;
+
+  /* Espaçamento */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Layout */
+  --container: 720px;
+  --side-pad:  clamp(1.5rem, 5vw, 3rem);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── Layout ─────────────────────────────────── */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--side-pad);
+  padding-right: var(--side-pad);
+}
+
+.section { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); }
+.section + .section { border-top: 1px solid var(--gold-muted); }
+
+/* ── Tipografia ─────────────────────────────── */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.65;
+  margin-bottom: var(--space-lg);
+  display: block;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--parchment);
+}
+
+/* ── Divider ────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-muted), transparent);
+  margin: var(--space-xl) 0;
+}
+
+/* ── Callout ────────────────────────────────── */
+.callout {
+  border-left: 2px solid var(--gold);
+  padding: var(--space-lg);
+  background: linear-gradient(90deg, rgba(200,168,78,0.05), transparent);
+}
+
+/* ── Item de obra / posição ─────────────────── */
+.entry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.entry:last-child { border-bottom: none; padding-bottom: 0; }
+
+.entry-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.entry-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--parchment);
+}
+
+.entry-sub {
+  font-size: 0.82rem;
+  color: var(--slate-light);
+  line-height: 1.8;
+}
+
+/* ── Princípios ─────────────────────────────── */
+.principle {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.principle:last-child { border-bottom: none; }
+.principle-id {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.5;
+}
+.principle-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--parchment);
+  margin: 0.25rem 0;
+}
+.principle-def {
+  font-size: 0.82rem;
+  color: var(--slate);
+  line-height: 1.8;
+}
+
+/* ── Seal ───────────────────────────────────── */
+.seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--slate);
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.seal:hover { opacity: 1; }
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 640px) {
+  :root {
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+  }
+}
