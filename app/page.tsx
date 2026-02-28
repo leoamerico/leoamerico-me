@@ -139,7 +139,7 @@ export default function Curriculum() {
             fontSize: '0.72rem',
             letterSpacing: '0.18em',
             color: 'var(--gold)',
-            opacity: 0.55,
+            opacity: 0.78,
             marginTop: 'var(--space-lg)',
           }}>
             Machina custodit. Homo gubernat.
@@ -197,7 +197,7 @@ export default function Curriculum() {
                 fontSize: '0.68rem',
                 letterSpacing: '0.12em',
                 color: 'var(--gold)',
-                opacity: 0.65,
+                opacity: 0.78,
                 marginTop: '0.2rem',
               }}>
                 Fundador & CEO
@@ -210,8 +210,8 @@ export default function Curriculum() {
               <p style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.62rem',
-                color: 'var(--slate)',
-                opacity: 0.5,
+                color: 'var(--slate-light)',
+                opacity: 0.75,
                 marginTop: 'var(--space-sm)',
               }}>
                 CNPJ 36.207.211/0001-47 · Uberlândia MG
@@ -265,8 +265,8 @@ export default function Curriculum() {
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.62rem',
                     letterSpacing: '0.15em',
-                    color: `${obra.accent}`,
-                    opacity: 0.8,
+                    color: 'var(--gold)',
+                    opacity: 0.78,
                     display: 'block',
                     marginBottom: 'var(--space-md)',
                   }}>
@@ -290,7 +290,7 @@ export default function Curriculum() {
                         fontSize: '0.65rem',
                         letterSpacing: '0.12em',
                         color: 'var(--gold)',
-                        opacity: 0.7,
+                        opacity: 0.78,
                       }}
                     >
                       {obra.href.replace('https://', '')} ↗
@@ -307,8 +307,8 @@ export default function Curriculum() {
                           fontFamily: 'var(--font-mono)',
                           fontSize: '0.6rem',
                           letterSpacing: '0.1em',
-                          color: 'var(--slate)',
-                          opacity: 0.55,
+                          color: 'var(--slate-light)',
+                          opacity: 0.75,
                         }}
                       >
                         Perfil no portfólio Env Neo ↗
@@ -364,7 +364,7 @@ export default function Curriculum() {
               <p style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.68rem',
-                color: 'var(--slate)',
+                color: 'var(--slate-light)',
                 letterSpacing: '0.1em',
                 marginTop: 'var(--space-sm)',
               }}>
@@ -398,8 +398,8 @@ export default function Curriculum() {
           >
             <EnvNeoSymbol size={18} />
             <span style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
-              <span style={{ color: 'var(--parchment)', opacity: 0.5 }}>Env Neo</span>
-              <span style={{ fontSize: '0.55rem', opacity: 0.35 }}>envneo.com.br</span>
+              <span style={{ color: 'var(--parchment)', opacity: 0.65 }}>Env Neo</span>
+              <span style={{ fontSize: '0.55rem', color: 'var(--slate-light)', opacity: 0.85 }}>envneo.com.br</span>
             </span>
           </a>
 
@@ -408,8 +408,8 @@ export default function Curriculum() {
             fontFamily: 'var(--font-mono)',
             fontSize: '0.6rem',
             letterSpacing: '0.15em',
-            color: 'var(--slate)',
-            opacity: 0.4,
+            color: 'var(--slate-light)',
+            opacity: 0.75,
           }}>
             Machina custodit. Homo gubernat.
           </span>
