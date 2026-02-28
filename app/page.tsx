@@ -44,6 +44,7 @@ const OBRAS = [
     desc: 'Plataforma GRP que transforma obrigações normativas em controles técnicos auditáveis. Cobre LGPD, LAI, LRF, Lei 14.129/21, CF/88 Art. 37 e marcos TCU/CGU.',
     accent: '#1E3A5F',
     href: 'https://govevia.com.br',
+    portfolio: 'https://envneo.com.br/marcas/govevia',
     symbol: <GoveviaSymbol size={22} />,
     status: 'Ativo',
   },
@@ -275,25 +276,45 @@ export default function Curriculum() {
                   <p style={{ fontSize: '0.87rem', color: 'var(--slate-light)', lineHeight: 1.85 }}>
                     {obra.desc}
                   </p>
-                  {/* Link */}
-                  <a
-                    href={obra.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                      marginTop: 'var(--space-md)',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.65rem',
-                      letterSpacing: '0.12em',
-                      color: 'var(--gold)',
-                      opacity: 0.7,
-                    }}
-                  >
-                    {obra.href.replace('https://', '')} ↗
-                  </a>
+                  {/* Links */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', marginTop: 'var(--space-md)', alignItems: 'center' }}>
+                    <a
+                      href={obra.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.4rem',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.65rem',
+                        letterSpacing: '0.12em',
+                        color: 'var(--gold)',
+                        opacity: 0.7,
+                      }}
+                    >
+                      {obra.href.replace('https://', '')} ↗
+                    </a>
+                    {'portfolio' in obra && obra.portfolio && (
+                      <a
+                        href={obra.portfolio}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.4rem',
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: '0.6rem',
+                          letterSpacing: '0.1em',
+                          color: 'var(--slate)',
+                          opacity: 0.55,
+                        }}
+                      >
+                        Perfil no portfólio Env Neo ↗
+                      </a>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
