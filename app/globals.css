@@ -19,13 +19,13 @@
   --gold:          #C8A84E;
   --gold-muted:    rgba(200,168,78,0.2);
   --gold-light:    #D4B86A;
-  --slate:         #6B7280;
+  --slate:         #8B95A5;
   --slate-light:   #9CA3AF;
 
-  /* Paleta — marcas (contraste mín. 5:1 sobre --ink) */
-  --govevia:       #10B981;
+  /* Paleta — marcas (contraste mín. AA 4.5:1 sobre --ink) */
+  --govevia:       #10B981;   /* 7.8:1 — AA + AAA */
   --govevia-muted: rgba(16,185,129,0.2);
-  --envlive:       #3B82F6;
+  --envlive:       #3B82F6;   /* 5.4:1 — AA only (AAA: usar #60A5FA) */
   --envlive-muted: rgba(59,130,246,0.2);
 
   /* Espaçamento */
@@ -69,6 +69,8 @@ a { color: inherit; text-decoration: none; }
 .label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.7;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--gold);

@@ -222,7 +222,7 @@ export default function Curriculum() {
             ════════════════════════════════════════════════════ */}
         <section className="section">
           <div className="container">
-            <span className="label">Sobre</span>
+            <h2 className="label">Sobre</h2>
             <div className="callout">
               <p style={{
                 fontFamily: 'var(--font-display)',
@@ -253,7 +253,7 @@ export default function Curriculum() {
             ════════════════════════════════════════════════════ */}
         <section className="section">
           <div className="container">
-            <span className="label">Posição Atual</span>
+            <h2 className="label">Posição Atual</h2>
             <div className="entry">
               <span className="entry-label">2024 — presente</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -296,7 +296,7 @@ export default function Curriculum() {
             ════════════════════════════════════════════════════ */}
         <section className="section">
           <div className="container">
-            <span className="label">Obra</span>
+            <h2 className="label">Obra</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-xl)' }}>
               {OBRAS.map((obra) => (
                 <div key={obra.code} style={{
@@ -397,7 +397,7 @@ export default function Curriculum() {
             ════════════════════════════════════════════════════ */}
         <section className="section">
           <div className="container">
-            <span className="label">Princípios</span>
+            <h2 className="label">Princípios</h2>
             <div>
               {PRINCÍPIOS.map((p) => (
                 <div key={p.id} className="principle">
@@ -415,7 +415,7 @@ export default function Curriculum() {
             ════════════════════════════════════════════════════ */}
         <section className="section">
           <div className="container">
-            <span className="label">Contato</span>
+            <h2 className="label">Contato</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
               <a
                 href="mailto:contato@envneo.com.br"
