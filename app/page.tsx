@@ -11,10 +11,10 @@ function EnvNeoSymbol({ size = 36 }: { size?: number }) {
     <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true" shapeRendering="geometricPrecision">
       <title>Env Neo</title>
       {/* Esfera — contorno ghost */}
-      <circle cx="50" cy="50" r="40" fill="none" stroke="var(--gold)" strokeWidth="1.2" opacity="0.15" />
+      <circle cx="50" cy="50" r="40" fill="none" stroke="var(--gold)" strokeWidth="1.2" opacity="0.3" />
       {/* Meridianos simétricos — eixo de rotação */}
-      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke="var(--gold)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
-      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke="var(--gold)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke="var(--gold)" strokeWidth="0.8" opacity="0.3" strokeLinecap="round" />
+      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke="var(--gold)" strokeWidth="0.8" opacity="0.3" strokeLinecap="round" />
       {/* Equador — faixa ativa com profundidade */}
       <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-env)" strokeWidth="3.2" />
     </svg>
@@ -34,16 +34,16 @@ function EnvLiveSymbol({ size = 28 }: { size?: number }) {
       {/* Arco superior — gap lateral 30° em cada lado */}
       <path
         d="M 88.64 60.35 A 40 40 0 0 0 11.36 60.35"
-        fill="none" stroke="var(--envlive)" strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
+        fill="none" stroke="var(--envlive)" strokeWidth="1.2" opacity="0.3" strokeLinecap="round"
       />
       {/* Arco inferior — simétrico */}
       <path
         d="M 11.36 39.65 A 40 40 0 0 0 88.64 39.65"
-        fill="none" stroke="var(--envlive)" strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
+        fill="none" stroke="var(--envlive)" strokeWidth="1.2" opacity="0.3" strokeLinecap="round"
       />
       {/* Meridianos simétricos — mesma proporção do sistema */}
-      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke="var(--envlive)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
-      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke="var(--envlive)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke="var(--envlive)" strokeWidth="0.8" opacity="0.3" strokeLinecap="round" />
+      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke="var(--envlive)" strokeWidth="0.8" opacity="0.3" strokeLinecap="round" />
       {/* Equador — faixa ativa com profundidade */}
       <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-live)" strokeWidth="3.2" />
     </svg>
@@ -62,11 +62,11 @@ function GoveviaSymbol({ size = 28 }: { size?: number }) {
       {/* Arco da esfera — gap de 30° no topo (gesto deliberado) */}
       <path
         d="M 60.35 11.36 A 40 40 0 1 1 39.65 11.36"
-        fill="none" stroke={c} strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
+        fill="none" stroke={c} strokeWidth="1.2" opacity="0.3" strokeLinecap="round"
       />
       {/* Meridianos simétricos — mesma proporção que Env Neo */}
-      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke={c} strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
-      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke={c} strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke={c} strokeWidth="0.8" opacity="0.3" strokeLinecap="round" />
+      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke={c} strokeWidth="0.8" opacity="0.3" strokeLinecap="round" />
       {/* Equador — faixa ativa com profundidade */}
       <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-gov)" strokeWidth="3.2" />
     </svg>
@@ -83,7 +83,7 @@ const OBRAS = [
     accent: 'var(--govevia)',
     href: 'https://govevia.com.br',
     portfolio: 'https://envneo.com.br/marcas/govevia',
-    symbol: <GoveviaSymbol size={22} />,
+    symbol: <GoveviaSymbol size={28} />,
     status: 'Ativo',
   },
   {
@@ -95,7 +95,7 @@ const OBRAS = [
     accent: 'var(--envlive)',
     href: 'https://envlive.com.br',
     portfolio: 'https://envneo.com.br/marcas/envlive',
-    symbol: <EnvLiveSymbol size={22} />,
+    symbol: <EnvLiveSymbol size={28} />,
     status: 'Planejado',
   },
 ]
@@ -182,12 +182,12 @@ export default function Curriculum() {
             fontSize: 'clamp(3rem, 8vw, 5.5rem)',
             fontWeight: 300,
             letterSpacing: '-0.01em',
-            lineHeight: 1,
+            lineHeight: 1.15,
             color: 'var(--parchment)',
             marginBottom: 'var(--space-md)',
           }}>
             Leonardo<br />
-            <span style={{ color: 'var(--gold)', opacity: 0.9 }}>Americo</span>
+            <span style={{ color: 'var(--gold)' }}>Americo</span>
           </h1>
 
           {/* Posição */}
@@ -207,10 +207,10 @@ export default function Curriculum() {
           <div className="divider" style={{ maxWidth: '280px' }} />
           <p style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: '0.72rem',
-            letterSpacing: '0.18em',
+            fontSize: '0.78rem',
+            letterSpacing: '0.15em',
             color: 'var(--gold)',
-            opacity: 0.78,
+            opacity: 0.88,
             marginTop: 'var(--space-lg)',
           }}>
             Machina custodit. Homo gubernat.
@@ -265,10 +265,10 @@ export default function Curriculum() {
               </div>
               <p style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.68rem',
+                fontSize: '0.75rem',
                 letterSpacing: '0.12em',
                 color: 'var(--gold)',
-                opacity: 0.78,
+                opacity: 0.88,
                 marginTop: '0.2rem',
               }}>
                 Fundador & CEO
@@ -280,9 +280,9 @@ export default function Curriculum() {
               </p>
               <p style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.62rem',
+                fontSize: '0.75rem',
                 color: 'var(--slate-light)',
-                opacity: 0.75,
+                opacity: 0.85,
                 marginTop: 'var(--space-sm)',
               }}>
                 CNPJ 36.207.211/0001-47 · Uberlândia MG
@@ -315,7 +315,7 @@ export default function Curriculum() {
                         fontSize: '1.6rem',
                         fontWeight: 300,
                         color: 'var(--parchment)',
-                        lineHeight: 1,
+                        lineHeight: 1.15,
                       }}
                     >
                       {obra.name}
@@ -334,17 +334,17 @@ export default function Curriculum() {
                   {/* Papel */}
                   <span style={{
                     fontFamily: 'var(--font-mono)',
-                    fontSize: '0.62rem',
-                    letterSpacing: '0.15em',
+                    fontSize: '0.75rem',
+                    letterSpacing: '0.12em',
                     color: 'var(--gold)',
-                    opacity: 0.78,
+                    opacity: 0.88,
                     display: 'block',
                     marginBottom: 'var(--space-md)',
                   }}>
                     {obra.role} · {obra.status}
                   </span>
                   {/* Descrição */}
-                  <p style={{ fontSize: '0.87rem', color: 'var(--slate-light)', lineHeight: 1.85 }}>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--slate-light)', lineHeight: 1.85 }}>
                     {obra.desc}
                   </p>
                   {/* Links */}
@@ -358,10 +358,10 @@ export default function Curriculum() {
                         alignItems: 'center',
                         gap: '0.4rem',
                         fontFamily: 'var(--font-mono)',
-                        fontSize: '0.65rem',
-                        letterSpacing: '0.12em',
+                        fontSize: '0.75rem',
+                        letterSpacing: '0.1em',
                         color: 'var(--gold)',
-                        opacity: 0.78,
+                        opacity: 0.88,
                       }}
                     >
                       {obra.href.replace('https://', '')} ↗
@@ -376,10 +376,10 @@ export default function Curriculum() {
                           alignItems: 'center',
                           gap: '0.4rem',
                           fontFamily: 'var(--font-mono)',
-                          fontSize: '0.6rem',
+                          fontSize: '0.75rem',
                           letterSpacing: '0.1em',
                           color: 'var(--slate-light)',
-                          opacity: 0.75,
+                          opacity: 0.85,
                         }}
                       >
                         Perfil no portfólio Env Neo ↗
@@ -434,7 +434,7 @@ export default function Curriculum() {
               </a>
               <p style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.68rem',
+                fontSize: '0.75rem',
                 color: 'var(--slate-light)',
                 letterSpacing: '0.1em',
                 marginTop: 'var(--space-sm)',
@@ -469,18 +469,18 @@ export default function Curriculum() {
           >
             <EnvNeoSymbol size={18} />
             <span style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
-              <span style={{ color: 'var(--parchment)', opacity: 0.65 }}>Env Neo</span>
-              <span style={{ fontSize: '0.55rem', color: 'var(--slate-light)', opacity: 0.85 }}>envneo.com.br</span>
+              <span style={{ color: 'var(--parchment)', opacity: 0.8 }}>Env Neo</span>
+              <span style={{ fontSize: '0.7rem', color: 'var(--slate-light)' }}>envneo.com.br</span>
             </span>
           </a>
 
           {/* Lema */}
           <span style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: '0.6rem',
-            letterSpacing: '0.15em',
+            fontSize: '0.75rem',
+            letterSpacing: '0.12em',
             color: 'var(--slate-light)',
-            opacity: 0.75,
+            opacity: 0.85,
           }}>
             Machina custodit. Homo gubernat.
           </span>
