@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import ProfilePhoto from './ProfilePhoto'
 
 export const metadata: Metadata = {
   title: 'Leonardo Americo — Curriculum',
@@ -32,33 +33,6 @@ function GoveviaSymbol({ size = 28 }: { size?: number }) {
         <ellipse cx="0" cy="0" rx="64" ry="16" fill="none" stroke="#FAFAF8" strokeWidth="5" />
       </g>
     </svg>
-  )
-}
-
-/* ── Foto de perfil circular ────────────────── */
-function ProfilePhoto() {
-  return (
-    <div className="photo-ring-wrap">
-      <div className="photo-ring" aria-hidden="true" />
-      <div className="photo-circle">
-        {/* Coloque /public/assets/leo.jpg para exibir a foto real */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/assets/leo.jpg"
-          alt="Leonardo Americo"
-          className="photo-img"
-          width={132}
-          height={132}
-          onError={(e) => {
-            const img = e.currentTarget as HTMLImageElement
-            img.style.display = 'none'
-            const fb = img.nextElementSibling as HTMLElement | null
-            if (fb) fb.removeAttribute('hidden')
-          }}
-        />
-        <span className="photo-fallback" hidden aria-hidden="true">LA</span>
-      </div>
-    </div>
   )
 }
 
