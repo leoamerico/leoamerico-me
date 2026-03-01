@@ -28,6 +28,43 @@ function EnvNeoSymbol({ size = 36 }: { size?: number }) {
   )
 }
 
+/* ── SVG inline: esfera Env Live (monitoramento em tempo real) ── */
+function EnvLiveSymbol({ size = 28 }: { size?: number }) {
+  const c = '#C8A84E'
+  /* Esfera com gaps laterais de 30° (janelas de observação).
+     Gap direito centrado em 0°: remove de 345° a 15°.
+     Gap esquerdo centrado em 180°: remove de 165° a 195°.
+     Arco superior: 15° → 165° (150°, large-arc=0, sweep=0 — sentido anti-horário passando pelo topo).
+     Arco inferior: 195° → 345° (150°, large-arc=0, sweep=0 — sentido anti-horário passando pelo fundo). */
+  return (
+    <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true" shapeRendering="geometricPrecision">
+      <title>Env Live</title>
+      <defs>
+        <linearGradient id="eq-live" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor={c} stopOpacity="0.35" />
+          <stop offset="50%" stopColor={c} stopOpacity="1" />
+          <stop offset="100%" stopColor={c} stopOpacity="0.35" />
+        </linearGradient>
+      </defs>
+      {/* Arco superior — gap lateral 30° em cada lado */}
+      <path
+        d="M 88.64 60.35 A 40 40 0 0 0 11.36 60.35"
+        fill="none" stroke={c} strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
+      />
+      {/* Arco inferior — simétrico */}
+      <path
+        d="M 11.36 39.65 A 40 40 0 0 0 88.64 39.65"
+        fill="none" stroke={c} strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
+      />
+      {/* Meridianos simétricos — mesma proporção do sistema */}
+      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke={c} strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke={c} strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      {/* Equador — faixa ativa com profundidade */}
+      <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-live)" strokeWidth="3.2" />
+    </svg>
+  )
+}
+
 /* ── SVG inline: logo Govevia (equador cerimonial) ─────────── */
 function GoveviaSymbol({ size = 28 }: { size?: number }) {
   const c = '#1E3A5F'
@@ -71,6 +108,18 @@ const OBRAS = [
     symbol: <GoveviaSymbol size={22} />,
     status: 'Ativo',
   },
+  {
+    code: 'ENVLIVE',
+    name: 'Env Live',
+    role: 'Criador & Arquiteto',
+    tagline: 'Painel de Governança ao Vivo',
+    desc: 'Dashboard de monitoramento em tempo real para indicadores de governança pública. Observabilidade contínua sobre conformidade, prazos normativos e métricas operacionais.',
+    accent: '#C8A84E',
+    href: 'https://envlive.com.br',
+    portfolio: 'https://envneo.com.br/marcas/envlive',
+    symbol: <EnvLiveSymbol size={22} />,
+    status: 'Planejado',
+  },
 ]
 
 const PRINCÍPIOS = [
@@ -100,7 +149,7 @@ export default function Curriculum() {
             },
             address: { '@type': 'PostalAddress', addressLocality: 'Uberlândia', addressRegion: 'MG', addressCountry: 'BR' },
             email: 'mailto:contato@envneo.com.br',
-            sameAs: ['https://envneo.com.br', 'https://govevia.com.br', 'https://substack.com/profile/21150910-leonardo-americo-jose-ribeiro'],
+            sameAs: ['https://envneo.com.br', 'https://govevia.com.br', 'https://envlive.com.br', 'https://substack.com/profile/21150910-leonardo-americo-jose-ribeiro'],
           }),
         }}
       />
