@@ -8,14 +8,22 @@ export const metadata: Metadata = {
 /* ── SVG inline: esfera Env Neo (símbolo pai) ──────────────── */
 function EnvNeoSymbol({ size = 36 }: { size?: number }) {
   return (
-    <svg viewBox="0 0 120 120" width={size} height={size} aria-hidden="true">
-      {/* Esfera completa */}
-      <circle cx="60" cy="60" r="42" fill="none" stroke="#C8A84E" strokeWidth="1.5" opacity="0.25" />
-      {/* Meridianos sutis */}
-      <line x1="60" y1="18" x2="60" y2="42" stroke="#C8A84E" strokeWidth="1" opacity="0.18" strokeLinecap="round" />
-      <line x1="60" y1="78" x2="60" y2="102" stroke="#C8A84E" strokeWidth="1" opacity="0.18" strokeLinecap="round" />
-      {/* Equador — fragmento ativo (marca Govevia) */}
-      <ellipse cx="60" cy="60" rx="42" ry="10.5" fill="none" stroke="#C8A84E" strokeWidth="3.2" />
+    <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true" shapeRendering="geometricPrecision">
+      <title>Env Neo</title>
+      <defs>
+        <linearGradient id="eq-env" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#C8A84E" stopOpacity="0.35" />
+          <stop offset="50%" stopColor="#C8A84E" stopOpacity="1" />
+          <stop offset="100%" stopColor="#C8A84E" stopOpacity="0.35" />
+        </linearGradient>
+      </defs>
+      {/* Esfera — contorno ghost */}
+      <circle cx="50" cy="50" r="40" fill="none" stroke="#C8A84E" strokeWidth="1.2" opacity="0.15" />
+      {/* Meridianos simétricos — eixo de rotação */}
+      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke="#C8A84E" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke="#C8A84E" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      {/* Equador — faixa ativa com profundidade */}
+      <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-env)" strokeWidth="3.2" />
     </svg>
   )
 }
@@ -23,14 +31,29 @@ function EnvNeoSymbol({ size = 36 }: { size?: number }) {
 /* ── SVG inline: logo Govevia (equador cerimonial) ─────────── */
 function GoveviaSymbol({ size = 28 }: { size?: number }) {
   const c = '#1E3A5F'
+  /* Arco: círculo r=40 centrado em (50,50) com gap de 30° no topo.
+     Ponto a 15° do topo: x = 50 ± 40·sin(15°), y = 50 − 40·cos(15°)
+     sin(15°) ≈ 0.2588 → dx ≈ 10.35 | cos(15°) ≈ 0.9659 → dy ≈ 38.64 */
   return (
-    <svg viewBox="0 0 160 160" width={size} height={size} aria-hidden="true">
-      <g transform="translate(80,80)">
-        <path d="M 6 -64 A 64 64 0 1 1 -6 -64" fill="none" stroke={c} strokeWidth="1.5" opacity="0.18" strokeLinecap="round" />
-        <line x1="0" y1="-50" x2="0" y2="-18" stroke={c} strokeWidth="1" opacity="0.12" strokeLinecap="round" />
-        <line x1="0" y1="18" x2="0" y2="64" stroke={c} strokeWidth="1" opacity="0.12" strokeLinecap="round" />
-        <ellipse cx="0" cy="0" rx="64" ry="16" fill="none" stroke="#FAFAF8" strokeWidth="5" />
-      </g>
+    <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true" shapeRendering="geometricPrecision">
+      <title>Govevia</title>
+      <defs>
+        <linearGradient id="eq-gov" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#FAFAF8" stopOpacity="0.35" />
+          <stop offset="50%" stopColor="#FAFAF8" stopOpacity="1" />
+          <stop offset="100%" stopColor="#FAFAF8" stopOpacity="0.35" />
+        </linearGradient>
+      </defs>
+      {/* Arco da esfera — gap de 30° no topo (gesto deliberado) */}
+      <path
+        d="M 60.35 11.36 A 40 40 0 1 1 39.65 11.36"
+        fill="none" stroke={c} strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
+      />
+      {/* Meridianos simétricos — mesma proporção que Env Neo */}
+      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke={c} strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke={c} strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      {/* Equador — faixa ativa com profundidade */}
+      <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-gov)" strokeWidth="3.2" />
     </svg>
   )
 }
