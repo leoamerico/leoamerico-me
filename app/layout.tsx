@@ -34,9 +34,8 @@ export const metadata: Metadata = {
     siteName: 'Leonardo Americo',
     locale: 'pt_BR',
     type: 'profile',
-    images: [{ url: '/assets/og.jpg', width: 1200, height: 630, alt: 'Leonardo Americo' }],
   },
-  twitter: { card: 'summary_large_image', title: 'Leonardo Americo', description: 'Fundador da Env Neo. Criador do Govevia GRP.', images: ['/assets/og.jpg'] },
+  twitter: { card: 'summary_large_image', title: 'Leonardo Americo', description: 'Fundador da Env Neo. Criador do Govevia GRP.' },
   robots: { index: true, follow: true },
 }
 
