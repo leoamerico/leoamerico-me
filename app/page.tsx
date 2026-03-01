@@ -10,18 +10,11 @@ function EnvNeoSymbol({ size = 36 }: { size?: number }) {
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true" shapeRendering="geometricPrecision">
       <title>Env Neo</title>
-      <defs>
-        <linearGradient id="eq-env" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#C8A84E" stopOpacity="0.35" />
-          <stop offset="50%" stopColor="#C8A84E" stopOpacity="1" />
-          <stop offset="100%" stopColor="#C8A84E" stopOpacity="0.35" />
-        </linearGradient>
-      </defs>
       {/* Esfera — contorno ghost */}
-      <circle cx="50" cy="50" r="40" fill="none" stroke="#C8A84E" strokeWidth="1.2" opacity="0.15" />
+      <circle cx="50" cy="50" r="40" fill="none" stroke="var(--gold)" strokeWidth="1.2" opacity="0.15" />
       {/* Meridianos simétricos — eixo de rotação */}
-      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke="#C8A84E" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
-      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke="#C8A84E" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke="var(--gold)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke="var(--gold)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
       {/* Equador — faixa ativa com profundidade */}
       <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-env)" strokeWidth="3.2" />
     </svg>
@@ -30,7 +23,6 @@ function EnvNeoSymbol({ size = 36 }: { size?: number }) {
 
 /* ── SVG inline: esfera Env Live (monitoramento em tempo real) ── */
 function EnvLiveSymbol({ size = 28 }: { size?: number }) {
-  const c = '#C8A84E'
   /* Esfera com gaps laterais de 30° (janelas de observação).
      Gap direito centrado em 0°: remove de 345° a 15°.
      Gap esquerdo centrado em 180°: remove de 165° a 195°.
@@ -39,28 +31,21 @@ function EnvLiveSymbol({ size = 28 }: { size?: number }) {
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true" shapeRendering="geometricPrecision">
       <title>Env Live</title>
-      <defs>
-        <linearGradient id="eq-live" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor={c} stopOpacity="0.35" />
-          <stop offset="50%" stopColor={c} stopOpacity="1" />
-          <stop offset="100%" stopColor={c} stopOpacity="0.35" />
-        </linearGradient>
-      </defs>
       {/* Arco superior — gap lateral 30° em cada lado */}
       <path
         d="M 88.64 60.35 A 40 40 0 0 0 11.36 60.35"
-        fill="none" stroke={c} strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
+        fill="none" stroke="var(--gold)" strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
       />
       {/* Arco inferior — simétrico */}
       <path
         d="M 11.36 39.65 A 40 40 0 0 0 88.64 39.65"
-        fill="none" stroke={c} strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
+        fill="none" stroke="var(--gold)" strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
       />
       {/* Meridianos simétricos — mesma proporção do sistema */}
-      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke={c} strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
-      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke={c} strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
-      {/* Equador — faixa ativa com profundidade */}
-      <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-live)" strokeWidth="3.2" />
+      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke="var(--gold)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke="var(--gold)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      {/* Equador — faixa ativa com profundidade (compartilha gradiente gold com Env Neo) */}
+      <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-env)" strokeWidth="3.2" />
     </svg>
   )
 }
@@ -74,13 +59,6 @@ function GoveviaSymbol({ size = 28 }: { size?: number }) {
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true" shapeRendering="geometricPrecision">
       <title>Govevia</title>
-      <defs>
-        <linearGradient id="eq-gov" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#FAFAF8" stopOpacity="0.35" />
-          <stop offset="50%" stopColor="#FAFAF8" stopOpacity="1" />
-          <stop offset="100%" stopColor="#FAFAF8" stopOpacity="0.35" />
-        </linearGradient>
-      </defs>
       {/* Arco da esfera — gap de 30° no topo (gesto deliberado) */}
       <path
         d="M 60.35 11.36 A 40 40 0 1 1 39.65 11.36"
@@ -155,6 +133,22 @@ export default function Curriculum() {
       />
 
       <main>
+
+        {/* ── Shared SVG gradient defs (single source, avoids ID collision) ── */}
+        <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+          <defs>
+            <linearGradient id="eq-env" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.35" />
+              <stop offset="50%" stopColor="var(--gold)" stopOpacity="1" />
+              <stop offset="100%" stopColor="var(--gold)" stopOpacity="0.35" />
+            </linearGradient>
+            <linearGradient id="eq-gov" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#FAFAF8" stopOpacity="0.35" />
+              <stop offset="50%" stopColor="#FAFAF8" stopOpacity="1" />
+              <stop offset="100%" stopColor="#FAFAF8" stopOpacity="0.35" />
+            </linearGradient>
+          </defs>
+        </svg>
 
         {/* ════════════════════════════════════════════════════
             HERO
