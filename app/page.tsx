@@ -35,6 +35,33 @@ function GoveviaSymbol({ size = 28 }: { size?: number }) {
   )
 }
 
+/* ── Foto de perfil circular ────────────────── */
+function ProfilePhoto() {
+  return (
+    <div className="photo-ring-wrap">
+      <div className="photo-ring" aria-hidden="true" />
+      <div className="photo-circle">
+        {/* Coloque /public/assets/leo.jpg para exibir a foto real */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/leo.jpg"
+          alt="Leonardo Americo"
+          className="photo-img"
+          width={132}
+          height={132}
+          onError={(e) => {
+            const img = e.currentTarget as HTMLImageElement
+            img.style.display = 'none'
+            const fb = img.nextElementSibling as HTMLElement | null
+            if (fb) fb.removeAttribute('hidden')
+          }}
+        />
+        <span className="photo-fallback" hidden aria-hidden="true">LA</span>
+      </div>
+    </div>
+  )
+}
+
 const OBRAS = [
   {
     code: 'GOVEVIA',
@@ -95,55 +122,68 @@ export default function Curriculum() {
           padding: `var(--space-3xl) var(--side-pad)`,
           maxWidth: 'var(--container)',
           margin: '0 auto',
+          position: 'relative',
+          overflow: 'hidden',
         }}>
 
+          {/* Aurora mesh */}
+          <div className="hero-aurora" aria-hidden="true" />
+
           {/* Símbolo */}
-          <div style={{ marginBottom: 'var(--space-xl)' }}>
+          <div style={{ marginBottom: 'var(--space-xl)', position: 'relative', zIndex: 1 }}>
             <EnvNeoSymbol size={52} />
           </div>
 
           {/* Label de contexto */}
-          <span className="label">Curriculum · Autoridade por Obra</span>
+          <span className="label" style={{ position: 'relative', zIndex: 1 }}>Curriculum · Autoridade por Obra</span>
 
-          {/* Nome */}
-          <h1 style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(3rem, 8vw, 5.5rem)',
-            fontWeight: 300,
-            letterSpacing: '-0.01em',
-            lineHeight: 1,
-            color: 'var(--parchment)',
-            marginBottom: 'var(--space-md)',
-          }}>
-            Leonardo<br />
-            <span style={{ color: 'var(--gold)', opacity: 0.9 }}>Americo</span>
-          </h1>
+          {/* Bloco principal: foto + textos */}
+          <div className="hero-inner">
+            {/* Foto */}
+            <ProfilePhoto />
 
-          {/* Posição */}
-          <p style={{
-            fontFamily: 'var(--font-display)',
-            fontStyle: 'italic',
-            fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
-            fontWeight: 300,
-            color: 'var(--slate-light)',
-            letterSpacing: '0.02em',
-            marginBottom: 'var(--space-xl)',
-          }}>
-            Fundador & CEO — Env Neo Ltda
-          </p>
+            {/* Textos */}
+            <div style={{ flex: 1 }}>
+              {/* Nome */}
+              <h1 style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(3rem, 8vw, 5.5rem)',
+                fontWeight: 300,
+                letterSpacing: '-0.01em',
+                lineHeight: 1,
+                color: 'var(--parchment)',
+                marginBottom: 'var(--space-md)',
+              }}>
+                Leonardo<br />
+                <span style={{ color: 'var(--gold)', opacity: 0.9 }}>Americo</span>
+              </h1>
 
-          {/* Lema */}
-          <div className="divider" style={{ maxWidth: '280px' }} />
-          <p style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.72rem',
-            letterSpacing: '0.18em',
-            color: 'var(--gold)',
-            opacity: 0.55,
-            marginTop: 'var(--space-lg)',
-          }}>
-            Machina custodit. Homo gubernat.
-          </p>
+              {/* Posição */}
+              <p style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
+                fontWeight: 300,
+                color: 'var(--slate-light)',
+                letterSpacing: '0.02em',
+                marginBottom: 'var(--space-xl)',
+              }}>
+                Fundador & CEO — Env Neo Ltda
+              </p>
+
+              {/* Lema */}
+              <div className="divider" style={{ maxWidth: '280px' }} />
+              <p style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.72rem',
+                letterSpacing: '0.18em',
+                color: 'var(--gold)',
+                opacity: 0.55,
+                marginTop: 'var(--space-lg)',
+              }}>
+                Machina custodit. Homo gubernat.
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* ════════════════════════════════════════════════════
@@ -228,9 +268,8 @@ export default function Curriculum() {
             <span className="label">Obra</span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-xl)' }}>
               {OBRAS.map((obra) => (
-                <div key={obra.code} style={{
+                <div key={obra.code} className="glass-card" style={{
                   borderLeft: `2px solid ${obra.accent}`,
-                  paddingLeft: 'var(--space-lg)',
                 }}>
                   {/* Header */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>

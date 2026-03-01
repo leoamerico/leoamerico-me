@@ -1,16 +1,15 @@
 import type { Metadata, Viewport } from 'next'
-import { Cormorant_Garamond, DM_Sans, JetBrains_Mono } from 'next/font/google'
+import { Sora, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const cormorant = Cormorant_Garamond({
+const sora = Sora({
   subsets: ['latin'],
   weight: ['300', '400', '600'],
-  style: ['normal', 'italic'],
   variable: '--font-display',
   display: 'swap',
 })
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500'],
   variable: '--font-body',
@@ -35,8 +34,9 @@ export const metadata: Metadata = {
     siteName: 'Leonardo Americo',
     locale: 'pt_BR',
     type: 'profile',
+    images: [{ url: '/assets/og.jpg', width: 1200, height: 630, alt: 'Leonardo Americo' }],
   },
-  twitter: { card: 'summary', title: 'Leonardo Americo', description: 'Fundador da Env Neo. Criador do Govevia GRP.' },
+  twitter: { card: 'summary_large_image', title: 'Leonardo Americo', description: 'Fundador da Env Neo. Criador do Govevia GRP.', images: ['/assets/og.jpg'] },
   robots: { index: true, follow: true },
 }
 
@@ -48,7 +48,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable}`}>
+    <html lang="pt-BR" className={`${sora.variable} ${inter.variable} ${jetbrains.variable}`}>
       <body>{children}</body>
     </html>
   )
