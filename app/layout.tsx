@@ -30,13 +30,13 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://leoamerico.me'),
   openGraph: {
     title: 'Leonardo Americo',
-    description: 'Fundador da Env Neo. Criador do Govevia GRP.',
+    description: 'Fundador da Env Neo. Criador do Govevia GRP e Env Live.',
     url: 'https://leoamerico.me',
     siteName: 'Leonardo Americo',
     locale: 'pt_BR',
     type: 'profile',
   },
-  twitter: { card: 'summary', title: 'Leonardo Americo', description: 'Fundador da Env Neo. Criador do Govevia GRP.' },
+  twitter: { card: 'summary', title: 'Leonardo Americo', description: 'Fundador da Env Neo. Criador do Govevia GRP e Env Live.' },
   robots: { index: true, follow: true },
 }
 
