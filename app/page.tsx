@@ -34,25 +34,25 @@ function EnvLiveSymbol({ size = 28 }: { size?: number }) {
       {/* Arco superior — gap lateral 30° em cada lado */}
       <path
         d="M 88.64 60.35 A 40 40 0 0 0 11.36 60.35"
-        fill="none" stroke="var(--gold)" strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
+        fill="none" stroke="var(--envlive)" strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
       />
       {/* Arco inferior — simétrico */}
       <path
         d="M 11.36 39.65 A 40 40 0 0 0 88.64 39.65"
-        fill="none" stroke="var(--gold)" strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
+        fill="none" stroke="var(--envlive)" strokeWidth="1.2" opacity="0.15" strokeLinecap="round"
       />
       {/* Meridianos simétricos — mesma proporção do sistema */}
-      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke="var(--gold)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
-      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke="var(--gold)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
-      {/* Equador — faixa ativa com profundidade (compartilha gradiente gold com Env Neo) */}
-      <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-env)" strokeWidth="3.2" />
+      <line x1="50" y1="10.8" x2="50" y2="37.64" stroke="var(--envlive)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      <line x1="50" y1="62.36" x2="50" y2="89.2" stroke="var(--envlive)" strokeWidth="0.8" opacity="0.15" strokeLinecap="round" />
+      {/* Equador — faixa ativa com profundidade */}
+      <ellipse cx="50" cy="50" rx="40" ry="12.36" fill="none" stroke="url(#eq-live)" strokeWidth="3.2" />
     </svg>
   )
 }
 
 /* ── SVG inline: logo Govevia (equador cerimonial) ─────────── */
 function GoveviaSymbol({ size = 28 }: { size?: number }) {
-  const c = '#1E3A5F'
+  const c = 'var(--govevia)'
   /* Arco: círculo r=40 centrado em (50,50) com gap de 30° no topo.
      Ponto a 15° do topo: x = 50 ± 40·sin(15°), y = 50 − 40·cos(15°)
      sin(15°) ≈ 0.2588 → dx ≈ 10.35 | cos(15°) ≈ 0.9659 → dy ≈ 38.64 */
@@ -80,7 +80,7 @@ const OBRAS = [
     role: 'Criador & Arquiteto',
     tagline: 'Governança Pública Executável',
     desc: 'Plataforma GRP que transforma obrigações normativas em controles técnicos auditáveis. Cobre LGPD, LAI, LRF, Lei 14.129/21, CF/88 Art. 37 e marcos TCU/CGU.',
-    accent: '#1E3A5F',
+    accent: 'var(--govevia)',
     href: 'https://govevia.com.br',
     portfolio: 'https://envneo.com.br/marcas/govevia',
     symbol: <GoveviaSymbol size={22} />,
@@ -92,7 +92,7 @@ const OBRAS = [
     role: 'Criador & Arquiteto',
     tagline: 'Painel de Governança ao Vivo',
     desc: 'Dashboard de monitoramento em tempo real para indicadores de governança pública. Observabilidade contínua sobre conformidade, prazos normativos e métricas operacionais.',
-    accent: '#C8A84E',
+    accent: 'var(--envlive)',
     href: 'https://envlive.com.br',
     portfolio: 'https://envneo.com.br/marcas/envlive',
     symbol: <EnvLiveSymbol size={22} />,
@@ -143,9 +143,14 @@ export default function Curriculum() {
               <stop offset="100%" stopColor="var(--gold)" stopOpacity="0.35" />
             </linearGradient>
             <linearGradient id="eq-gov" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#FAFAF8" stopOpacity="0.35" />
-              <stop offset="50%" stopColor="#FAFAF8" stopOpacity="1" />
-              <stop offset="100%" stopColor="#FAFAF8" stopOpacity="0.35" />
+              <stop offset="0%" stopColor="var(--govevia)" stopOpacity="0.35" />
+              <stop offset="50%" stopColor="var(--govevia)" stopOpacity="1" />
+              <stop offset="100%" stopColor="var(--govevia)" stopOpacity="0.35" />
+            </linearGradient>
+            <linearGradient id="eq-live" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="var(--envlive)" stopOpacity="0.35" />
+              <stop offset="50%" stopColor="var(--envlive)" stopOpacity="1" />
+              <stop offset="100%" stopColor="var(--envlive)" stopOpacity="0.35" />
             </linearGradient>
           </defs>
         </svg>

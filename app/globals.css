@@ -11,7 +11,7 @@
   --font-body:    'DM Sans', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
 
-  /* Paleta */
+  /* Paleta — base */
   --ink:           #0A0A0F;
   --ink-soft:      #111118;
   --parchment:     #F5F0E8;
@@ -21,6 +21,12 @@
   --gold-light:    #D4B86A;
   --slate:         #6B7280;
   --slate-light:   #9CA3AF;
+
+  /* Paleta — marcas */
+  --govevia:       #059669;
+  --govevia-muted: rgba(5,150,105,0.2);
+  --envlive:       #2563EB;
+  --envlive-muted: rgba(37,99,235,0.2);
 
   /* Espaçamento */
   --space-xs:  0.25rem;
