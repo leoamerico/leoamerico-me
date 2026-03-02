@@ -32,6 +32,15 @@ Thumbs.db
 # Governança local — CONFIDENCIAL — mover para envneo/governanca (repo privado)
 _governa_LOCAL_ONLY/
 
+# Pastas de governança na raiz — NUNCA versionar em repo público
+00_Governanca/
+01_Requisitos/
+02_Planejamento/
+03_Execucao/
+04_Entregaveis/
+05_Auditoria_Seguranca/
+99_Arquivamento/
+
 # Bun
 # bun.lockb is committed — do not ignore
 package-lock.json
