@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import ProfilePhoto from './ProfilePhoto'
+import { VERSES } from './lib/verses'
+import VerseBlock from './components/VerseBlock'
 
 export const metadata: Metadata = {
   title: 'Leonardo Americo — Curriculum',
@@ -156,6 +158,33 @@ export default function Curriculum() {
               }}>
                 Machina custodit. Homo gubernat.
               </p>
+
+              {/* Verso — alicerce ético */}
+              <blockquote style={{
+                fontFamily: 'var(--font-display)',
+                fontStyle: 'italic',
+                fontSize: '0.68rem',
+                color: 'var(--parchment)',
+                opacity: 0.18,
+                marginTop: 'var(--space-lg)',
+                lineHeight: 1.8,
+                maxWidth: '28ch',
+                borderLeft: '1px solid rgba(200,168,78,0.2)',
+                paddingLeft: '0.75rem',
+              }}>
+                {VERSES.hero.text.split('\n').map((line, i) => (
+                  <span key={i} style={{ display: 'block' }}>{line}</span>
+                ))}
+                <cite style={{
+                  display: 'block',
+                  marginTop: '0.4rem',
+                  fontFamily: 'var(--font-mono)',
+                  fontStyle: 'normal',
+                  fontSize: '0.58rem',
+                  letterSpacing: '0.15em',
+                  opacity: 0.7,
+                }}>{VERSES.hero.ref}</cite>
+              </blockquote>
             </div>
           </div>
         </section>
@@ -353,6 +382,15 @@ export default function Curriculum() {
         </section>
 
         {/* ════════════════════════════════════════════════════
+            VERSO — legado e dádiva (após Princípios)
+            ════════════════════════════════════════════════════ */}
+        <section className="section">
+          <div className="container">
+            <VerseBlock />
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════════
             CONTATO
             ════════════════════════════════════════════════════ */}
         <section className="section">
@@ -416,15 +454,27 @@ export default function Curriculum() {
             </span>
           </a>
 
-          {/* Lema */}
-          <span style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.6rem',
-            letterSpacing: '0.15em',
-            color: 'var(--slate)',
-            opacity: 0.4,
-          }}>
-            Machina custodit. Homo gubernat.
+          {/* Lema + verso */}
+          <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.35rem' }}>
+            <span style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.6rem',
+              letterSpacing: '0.15em',
+              color: 'var(--slate)',
+              opacity: 0.4,
+            }}>
+              Machina custodit. Homo gubernat.
+            </span>
+            <span style={{
+              fontFamily: 'var(--font-display)',
+              fontStyle: 'italic',
+              fontSize: '0.58rem',
+              color: 'var(--slate)',
+              opacity: 0.2,
+              letterSpacing: '0.04em',
+            }}>
+              {VERSES.footer.ref}
+            </span>
           </span>
         </footer>
 

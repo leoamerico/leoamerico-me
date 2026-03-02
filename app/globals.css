@@ -280,3 +280,164 @@ h1, h2, h3 {
     --space-3xl: 4rem;
   }
 }
+
+/* ═══════════════════════════════════════════════
+   VerseBlock — componente de verso inspiracional
+   ═══════════════════════════════════════════════ */
+
+/* Scroll reveal */
+.verse-block {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  padding: var(--space-xl) 0 0;
+  position: relative;
+}
+.verse-block--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Controls */
+.verse-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+.verse-toggle-btn,
+.verse-lang-btn {
+  background: none;
+  border: 1px solid rgba(200,168,78,0.18);
+  color: var(--slate);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s, opacity 0.3s;
+  opacity: 0.55;
+}
+.verse-toggle-btn:hover,
+.verse-lang-btn:hover {
+  border-color: rgba(200,168,78,0.45);
+  color: var(--gold);
+  opacity: 1;
+}
+
+/* Content visibility */
+.verse-content {
+  overflow: hidden;
+  max-height: 200px;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 1;
+}
+.verse-content--hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* Mobile: accordion visible / desktop: hidden */
+.verse-accordion   { display: block; }
+.verse-desktop     { display: none; }
+@media (min-width: 768px) {
+  .verse-accordion { display: none; }
+  .verse-desktop   { display: block; }
+}
+
+/* Accordion summary */
+.verse-accordion-summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  padding: var(--space-sm) 0;
+}
+.verse-accordion-summary::-webkit-details-marker { display: none; }
+.verse-accordion-icon {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--gold);
+  opacity: 0.5;
+  transition: transform 0.25s ease;
+}
+details[open] .verse-accordion-icon {
+  transform: rotate(45deg);
+}
+
+/* Figure / blockquote */
+.verse-figure {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  outline: none;
+  padding: var(--space-md) 0 var(--space-md) var(--space-lg);
+  border-left: 1px solid rgba(200,168,78,0.18);
+  max-width: 42ch;
+}
+.verse-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--parchment);
+  opacity: 0.45;
+  line-height: 1.9;
+  margin: 0 0 var(--space-sm);
+  transition: opacity 0.3s;
+}
+.verse-figure:hover .verse-quote,
+.verse-figure:focus .verse-quote {
+  opacity: 0.75;
+}
+.verse-caption {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+.verse-figure:hover .verse-caption,
+.verse-figure:focus .verse-caption {
+  opacity: 0.75;
+}
+
+/* Tooltip */
+.verse-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  background: var(--ink-soft);
+  border: 1px solid rgba(200,168,78,0.2);
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.72rem;
+  line-height: 1.75;
+  color: var(--parchment);
+  opacity: 0;
+  pointer-events: none;
+  white-space: normal;
+  width: max-content;
+  max-width: min(320px, 90vw);
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  /* Contrast ratio 4.5:1 garantido: #F5F0E8 em #111118 = ~10:1 */
+}
+.verse-tooltip--visible {
+  opacity: 0.92;
+}
+
+/* Reduz movimento se preferência do sistema */
+@media (prefers-reduced-motion: reduce) {
+  .verse-block,
+  .verse-content,
+  .verse-quote,
+  .verse-caption,
+  .verse-tooltip { transition: none; }
+}
