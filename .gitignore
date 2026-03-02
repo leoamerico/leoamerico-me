@@ -29,6 +29,9 @@ Thumbs.db
 *.njsproj
 *.sln
 
+# Governança local — CONFIDENCIAL — mover para envneo/governanca (repo privado)
+_governa_LOCAL_ONLY/
+
 # Bun
 # bun.lockb is committed — do not ignore
 package-lock.json
